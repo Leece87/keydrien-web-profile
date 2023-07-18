@@ -1,0 +1,82 @@
+*{
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.card{
+  text-align: center;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  width: 75%;
+  margin: auto;
+  margin-top: 20px;
+}
+
+img{
+  opacity: 0.8;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  width: 20%;
+  height: 20%;
+  object-fit: cover;
+  border-radius: 20px;
+  margin: 20px;
+}
+
+h1{
+  font-size: 30px;
+  margin: 20px;
+}
+
+.social-icons{
+  margin: 20px;
+}
+
+a{
+  justify-content: space-around;
+  text-decoration: none;
+  color: black;
+}
+
+.social-icons i{
+  font-size: 25px;
+  margin: 5px;
+  transition: 0.3s;
+}
+
+.social-icons{
+  margin: 20px;
+}
+
+.social-icons i:hover{
+  color: #1DA1F2;
+}
+
+#email-me{
+  background-color: #1DA1F2;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 20px;
+  transition: 0.3s;
+  border: none;
+  width: 120px;
+}
+
+#whatsapp-me{
+  background-color: #25D366;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 20px;
+  transition: 0.3s;
+  border: none;
+  width: 120px;
+  /* margin-left: 20px; */
+}
+
+button:hover{
+  transform: scale(1.1);
+}
