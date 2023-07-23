@@ -1,108 +1,45 @@
 *{
-  padding: 0%;
-  margin: 0%;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
- 
 }
 
-.card{
+body {
   text-align: center;
-  background-color: #e9edc9;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  width: 75%;
-  margin: auto;
-  margin-top: 20px;
 }
 
-.card {
-  background-image: url(./assets/bg.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+body h1{
+  font-size: 3rem;
+  margin: 20px 0;
+  color: green;
+  font-weight: bold;
 }
 
-img{
-  opacity: 0.8;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  width: 20%;
-  height: 20%;
-  object-fit: cover;
-  border-radius: 20px;
-  margin: 20px;
+body ul{
+ display: flex;
+  justify-content: center;
+  font-size: 17px;
+  line-height: 17px;
 }
 
-h1{
-  font-size: 30px;
-  margin: 20px;
+body ul li{
+  margin: 10px 10px;
 }
 
-.social-icons{
-  margin: 20px;
+body h2{
+  font-size: 1.5rem;
+  margin: 20px 0;
+  background-color: black;
+  color: red;
+  width: 210px;
+  border-radius: 20%;
+  padding: 10px;
+  margin: 10px auto;
 }
 
-a{
-  justify-content: space-around;
+.streaming-platforms a{
   text-decoration: none;
   color: black;
+  font-size: 30px;
 }
-
-.social-icons i{
-  font-size: 25px;
-  margin: 5px;
-  transition: 0.3s;
-}
-
-.social-icons{
-  margin: 20px;
-}
-
-.social-icons i:hover{
-  color: #1DA1F2;
-}
-
-#email-me{
-  background-color: #1DA1F2;
-  color: white;
-  padding: 10px;
-  border-radius: 10px;
-  margin: 20px;
-  transition: 0.3s;
-  border: none;
-  width: 120px;
-}
-
-#whatsapp-me{
-  background-color: #25D366;
-  color: white;
-  padding: 10px;
-  border-radius: 10px;
-  margin: 20px;
-  transition: 0.3s;
-  border: none;
-  width: 120px;
-}
-
-button:hover{
-  transform: scale(1.1);
-}
-
-body{
-  background-color: #e9edc9;
-  max-width: 100%;
-  overflow-x: hidden;
-  margin: 0%;
-  padding: 0%;
-}
-
-
-body::-webkit-scrollbar {
-  width: 0.25rem;
-}
-
-body::-webkit-scrollbar-track {
-  background: #1e1e24;
-}
-
