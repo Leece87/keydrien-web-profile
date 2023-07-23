@@ -10,10 +10,11 @@ body {
 }
 
 body h1{
-  font-size: 3rem;
+  font-size: 2rem;
   margin: 20px 0;
   color: green;
   font-weight: bold;
+  text-transform: uppercase;
 }
 
 body ul{
@@ -28,17 +29,40 @@ body ul li{
 }
 
 body h2{
-  font-size: 1.5rem;
+  font-size: 1rem;
   background-color: black;
   color: red;
   width: 210px;
   border-radius: 20%;
   padding: 10px;
   margin: 20% auto 2% auto;
+  text-transform: uppercase;
 }
 
 .streaming-platforms a{
   text-decoration: none;
-  color: black;
   font-size: 30px;
+}
+
+.bookings p{
+  text-transform: uppercase;
+  margin: 10px 0;
+}
+
+.bookings button{
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px 0;
+  cursor: pointer;
+  width: 100px;
+}
+
+.email{
+  background-color: red;
+}
+
+.whatsapp{
+  background-color: green;
 }
