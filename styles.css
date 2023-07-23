@@ -29,13 +29,12 @@ body ul li{
 
 body h2{
   font-size: 1.5rem;
-  margin: 20px 0;
   background-color: black;
   color: red;
   width: 210px;
   border-radius: 20%;
   padding: 10px;
-  margin: 10px auto;
+  margin: 20% auto 2% auto;
 }
 
 .streaming-platforms a{
