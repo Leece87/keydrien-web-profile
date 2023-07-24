@@ -66,3 +66,12 @@ body h2{
 .whatsapp{
   background-color: green;
 }
+
+.bookings a{
+  display: block;
+  margin: 10px 0;
+}
+
+.booking-details h2{
+  background-color: none;
+}
