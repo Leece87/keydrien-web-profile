@@ -10,7 +10,7 @@ if (isset($_POST['submit'])) {
     $message = $_POST['message'];
 
     // Email details
-    $to = 'mxolisiprince87@gmail.com';
+    $to = 'mxolisiprince87@gmail.com'; // Replace with your desired email address
     $subject = 'New Event Booking';
     $headers = "From: $name <$email>";
 
@@ -27,12 +27,15 @@ if (isset($_POST['submit'])) {
     if (mail($to, $subject, $email_body, $headers)) {
         // Email sent successfully, redirect back to the form page
         header("Location: index.html?status=success");
+        exit(); // Add this to stop script execution after redirection
     } else {
         // Failed to send email, redirect back to the form page with an error status
         header("Location: index.html?status=error");
+        exit(); // Add this to stop script execution after redirection
     }
 } else {
     // If the form is not submitted, redirect back to the form page
     header("Location: index.html");
+    exit(); // Add this to stop script execution after redirection
 }
 ?>
