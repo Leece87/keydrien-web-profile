@@ -1,41 +1,59 @@
 <?php
-if (isset($_POST['submit'])) {
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'PHPMailer/src/Exception.php';
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/SMTP.php';
+
+if (isset($_POST["submit"])) {
     // Retrieve form data
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $event = $_POST['event'];
-    $date = $_POST['date'];
-    $location = $_POST['location'];
-    $message = $_POST['message'];
+    $name = $_POST["name"];
+    $email = $_POST["email"];
+    $phone = $_POST["phone"];
+    $event = $_POST["event"];
+    $date = $_POST["date"];
+    $location = $_POST["location"];
+    $message = $_POST["message"];
 
-    // Email details
-    $to = 'mxolisiprince87@gmail.com'; // Replace with your desired email address
-    $subject = 'New Event Booking';
-    $headers = "From: $name <$email>";
+    // Create a new instance of PHPMailer
+    $mail = new PHPMailer(true);
 
-    // Email content
-    $email_body = "Name: $name\n";
-    $email_body .= "Email: $email\n";
-    $email_body .= "Phone: $phone\n";
-    $email_body .= "Event: $event\n";
-    $email_body .= "Date: $date\n";
-    $email_body .= "Location: $location\n";
-    $email_body .= "Message:\n$message";
+    // Set up SMTP configuration if needed
+    $mail->isSMTP();
+    $mail->Host = 'smtp.example.com'; // Your SMTP host
+    $mail->SMTPAuth = true;
+    $mail->Username = 'mxolisiprince87@gmail.com'; // Your SMTP username
+    $mail->Password = 'fyoaxagjstetwthv'; // Your SMTP password
+    $mail->SMTPSecure = 'tls'; // Use 'tls' or 'ssl' based on your SMTP server configuration
+    $mail->Port = 587; // Use the appropriate port for your SMTP server
 
-    // Send the email
-    if (mail($to, $subject, $email_body, $headers)) {
-        // Email sent successfully, redirect back to the form page
-        header("Location: index.html?status=success");
-        exit(); // Add this to stop script execution after redirection
-    } else {
-        // Failed to send email, redirect back to the form page with an error status
-        header("Location: index.html?status=error");
-        exit(); // Add this to stop script execution after redirection
+    try {
+        // Set the "From" address and the sender's name
+        $mail->setFrom($email, $name);
+
+        // Replace 'bookings@example.com' with the actual email address where you want to receive the booking requests
+        $to = 'mxolisiprince87@gmail.com';
+        $subject = "Booking Request for $event on $date";
+        $email_message = "Name: $name\nEmail: $email\nPhone: $phone\nEvent: $event\nDate: $date\nLocation: $location\nMessage: $message";
+
+        // Set the recipient
+        $mail->addAddress($to);
+
+        // Set email body
+        $mail->isHTML(false); // Set to true if you want to send an HTML-formatted email
+        $mail->Subject = $subject;
+        $mail->Body = $email_message;
+
+        // Send the email
+        $mail->send();
+
+        // Show a success message
+        echo "<p>Thank you for your booking request. We will get back to you soon!</p>";
+    } catch (Exception $e) {
+        // If any error occurs during sending the email, display the error message
+        echo "Error: {$e->getMessage()}";
     }
-} else {
-    // If the form is not submitted, redirect back to the form page
-    header("Location: index.html");
-    exit(); // Add this to stop script execution after redirection
 }
 ?>
