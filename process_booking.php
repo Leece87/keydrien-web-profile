@@ -17,17 +17,33 @@ if (isset($_POST["submit"])) {
     $location = $_POST["location"];
     $message = $_POST["message"];
 
-    // Create a new instance of PHPMailer
-    $mail = new PHPMailer(true);
+    try {
+        // Create a new instance of PHPMailer
+        $mail = new PHPMailer(true);
 
-    // Set up SMTP configuration if needed
+        // Disable SSL/TLS certificate verification (for local testing, not recommended in production)
+        $mail->SMTPOptions = array(
+            'ssl' => array(
+                'verify_peer' => false,
+                'verify_peer_name' => false,
+                'allow_self_signed' => true
+            )
+        );
+    }
+    catch (Exception $e) {
+        echo $e->errorMessage();
+    }
+    catch (\Exception $e) {
+        echo $e->getMessage();
+    }
+
     $mail->isSMTP();
-    $mail->Host = 'smtp.example.com'; // Your SMTP host
+    $mail->Host = 'smtp.gmail.com'; // Your SMTP host (e.g., Gmail)
     $mail->SMTPAuth = true;
-    $mail->Username = 'mxolisiprince87@gmail.com'; // Your SMTP username
-    $mail->Password = 'fyoaxagjstetwthv'; // Your SMTP password
-    $mail->SMTPSecure = 'tls'; // Use 'tls' or 'ssl' based on your SMTP server configuration
-    $mail->Port = 587; // Use the appropriate port for your SMTP server
+    $mail->Username = 'mxolisiprince87@gmail.com'; // Your Gmail username
+    $mail->Password = 'fyoaxagjstetwthv'; // Your Gmail password or app password
+    $mail->SMTPSecure = 'ssl'; // Use 'ssl' or 'tls' based on your SMTP server configuration
+    $mail->Port = 465; // Use the appropriate port for your SMTP server
 
     try {
         // Set the "From" address and the sender's name
@@ -56,4 +72,5 @@ if (isset($_POST["submit"])) {
         echo "Error: {$e->getMessage()}";
     }
 }
+
 ?>
